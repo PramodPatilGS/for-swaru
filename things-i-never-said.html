@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#10070c">
+
+<title>Things I Never Said ❤️</title>
+
+<style>
+
+/* ================================
+   BASIC
+================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #351326 0%,
+            #1c0b14 40%,
+            #10070c 80%
+        );
+
+    color: #fff8f3;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* ================================
+   MAIN PAGE
+================================ */
+
+.page {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 70px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 850px;
+
+    text-align: center;
+}
+
+
+/* ================================
+   PROGRESS
+================================ */
+
+.progress {
+    position: fixed;
+
+    top: 18px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 50;
+
+    color: #d8bcc5;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+}
+
+
+/* ================================
+   TITLE
+================================ */
+
+.kicker {
+    color: #f4a1b8;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(
+        42px,
+        9vw,
+        76px
+    );
+
+    font-weight: normal;
+
+    line-height: 1;
+
+    margin: 0 0 25px;
+}
+
+.subtitle {
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    color: #e8d1d8;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(
+        20px,
+        4vw,
+        27px
+    );
+
+    line-height: 1.5;
+}
+
+
+/* ================================
+   SENTENCES
+================================ */
+
+.reveal-list {
+
+    width: 100%;
+
+    margin-top: 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+.line {
+
+    width: 100%;
+
+    padding: 20px 18px;
+
+    border-radius: 18px;
+
+    border: 1px solid
+        rgba(255,255,255,.12);
+
+    background:
+        rgba(255,255,255,.035);
+
+    color: #fff4f1;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(
+        20px,
+        4vw,
+        29px
+    );
+
+    line-height: 1.35;
+
+    /* Hidden initially */
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    max-height: 0;
+
+    padding-top: 0;
+    padding-bottom: 0;
+
+    overflow: hidden;
+
+    transition:
+        opacity .6s ease,
+        transform .6s ease,
+        max-height .6s ease,
+        padding .6s ease;
+}
+
+
+/* Revealed sentence */
+
+.line.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+    max-height: 150px;
+
+    padding-top: 20px;
+
+    padding-bottom: 20px;
+
+    background:
+        rgba(255,255,255,.07);
+}
+
+
+.line strong {
+
+    color: #f4a1b8;
+}
+
+
+/* ================================
+   BUTTON AREA
+================================ */
+
+.button-area {
+
+    margin-top: 40px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+/* ================================
+   MAIN BUTTON
+================================ */
+
+#nextLine {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 260px;
+
+    min-height: 58px;
+
+    padding: 16px 28px;
+
+    border: 2px solid
+        rgba(244,161,184,.7);
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c294d,
+            #4e1730
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    letter-spacing: .3px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 30px
+        rgba(244,161,184,.18);
+
+    -webkit-appearance: none;
+
+    appearance: none;
+
+    touch-action: manipulation;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+
+#nextLine:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #a13c64,
+            #68203f
+        );
+
+    box-shadow:
+        0 12px 35px
+        rgba(244,161,184,.28);
+}
+
+
+#nextLine:active {
+
+    transform:
+        scale(.96);
+}
+
+
+/* ================================
+   CONTINUE BUTTON
+================================ */
+
+#continue {
+
+    display: none;
+
+    margin-top: 5px;
+}
+
+
+.continue-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 260px;
+
+    min-height: 58px;
+
+    padding: 16px 28px;
+
+    border-radius: 50px;
+
+    background: #ffffff;
+
+    color: #511a31;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 10px 35px
+        rgba(255,255,255,.12);
+
+    transition:
+        transform .2s ease;
+}
+
+
+.continue-button:hover {
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* ================================
+   HEART
+================================ */
+
+.heart {
+
+    font-size: 38px;
+
+    margin-bottom: 10px;
+
+    animation:
+        heartbeat 1.8s infinite;
+}
+
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+    .page {
+
+        padding:
+            75px 16px 50px;
+    }
+
+    .progress {
+
+        top: 12px;
+
+        font-size: 9px;
+
+        letter-spacing: 2px;
+    }
+
+    .kicker {
+
+        font-size: 10px;
+
+        letter-spacing: 3px;
+    }
+
+    h1 {
+
+        font-size: 42px;
+    }
+
+    .subtitle {
+
+        font-size: 20px;
+    }
+
+    .reveal-list {
+
+        margin-top: 35px;
+
+        gap: 12px;
+    }
+
+    .line {
+
+        font-size: 21px;
+
+        padding-left: 15px;
+
+        padding-right: 15px;
+    }
+
+    #nextLine,
+    .continue-button {
+
+        width: 100%;
+
+        max-width: 360px;
+
+        min-height: 60px;
+
+        font-size: 16px;
+    }
+}
+
+
+/* ================================
+   REDUCED MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+        animation: none !important;
+
+        transition:
+            none !important;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="progress">
+    OUR STORY · 03 / 07
+</div>
+
+
+<section class="page">
+
+<div class="container">
+
+
+<div class="heart">
+    ❤️
+</div>
+
+
+<div class="kicker">
+    Things I Never Said
+</div>
+
+
+<h1>
+    Some feelings stayed inside.
+</h1>
+
+
+<p class="subtitle">
+
+    Tap the button slowly.<br>
+
+    I want you to read these
+    one by one. ❤️
+
+</p>
+
+
+<!-- =================================
+     SENTENCES
+================================== -->
+
+<div class="reveal-list">
+
+
+    <div class="line">
+
+        I don't always say it…
+
+    </div>
+
+
+    <div class="line">
+
+        But you make ordinary days
+        feel special.
+
+    </div>
+
+
+    <div class="line">
+
+        You became the person
+        I want to tell everything to.
+
+    </div>
+
+
+    <div class="line">
+
+        With you, I feel a comfort
+        I never expected.
+
+    </div>
+
+
+    <div class="line">
+
+        Somewhere along the way…
+
+    </div>
+
+
+    <div class="line">
+
+        <strong>
+            You became my home. ❤️
+        </strong>
+
+    </div>
+
+
+</div>
+
+
+<!-- =================================
+     BUTTONS
+================================== -->
+
+<div class="button-area">
+
+
+    <!-- THIS BUTTON IS ALWAYS VISIBLE -->
+
+    <button
+        id="nextLine"
+        type="button"
+    >
+
+        Reveal the next thought ❤️
+
+    </button>
+
+
+    <!-- SHOWN AFTER ALL SENTENCES -->
+
+    <div id="continue">
+
+        <a
+            class="continue-button"
+            href="memories.html"
+        >
+
+            See our memories →
+
+        </a>
+
+    </div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<script>
+
+/*
+=========================================
+   THINGS I NEVER SAID
+=========================================
+*/
+
+
+const lines =
+    document.querySelectorAll(".line");
+
+
+const nextButton =
+    document.getElementById("nextLine");
+
+
+const continueBox =
+    document.getElementById("continue");
+
+
+let currentIndex = 0;
+
+
+/*
+=========================================
+   BUTTON CLICK
+=========================================
+*/
+
+
+nextButton.addEventListener(
+    "click",
+    function () {
+
+
+        /*
+        If sentences remain,
+        reveal ONE sentence.
+        */
+
+        if (
+            currentIndex <
+            lines.length
+        ) {
+
+
+            lines[
+                currentIndex
+            ].classList.add("show");
+
+
+            currentIndex++;
+
+
+            /*
+            Update button text.
+            */
+
+            if (
+                currentIndex <
+                lines.length
+            ) {
+
+                nextButton.textContent =
+                    "Reveal the next thought ❤️";
+
+            }
+
+            else {
+
+                nextButton.textContent =
+                    "Continue our story →";
+
+            }
+
+
+            /*
+            Scroll to newly revealed
+            sentence on mobile.
+            */
+
+            setTimeout(
+                function () {
+
+                    lines[
+                        currentIndex - 1
+                    ].scrollIntoView({
+
+                        behavior:
+                            "smooth",
+
+                        block:
+                            "nearest"
+
+                    });
+
+                },
+                150
+            );
+
+        }
+
+
+        /*
+        =================================
+        SECOND TAP AFTER FINAL SENTENCE
+        =================================
+        */
+
+        else {
+
+
+            nextButton.style.display =
+                "none";
+
+
+            continueBox.style.display =
+                "flex";
+
+
+            continueBox.scrollIntoView({
+
+                behavior:
+                    "smooth",
+
+                block:
+                    "center"
+
+            });
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>
